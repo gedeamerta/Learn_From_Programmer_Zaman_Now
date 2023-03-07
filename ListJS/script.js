@@ -39,3 +39,29 @@ console.info(stringNull !== `` ? true : false); // false
 
 let stringTrue = `false`;
 console.info(stringTrue !== `` ? true : false); // true
+
+
+// Rest Parameter
+/*
+Rest Parameter digunakan untuk menyimpan data yang lebih dari 1, atau parameter yg memiliki value lebih dari 1. 
+
+Kita menggunakan ...data -> otomatis membuat parameter tersebut menjadi tipe data array.
+
+*/
+function calculate(name, ...data) {
+    let total = 0;
+    for (const item of data) {
+        total += item
+    }
+    console.info(`${name}: ${total}`);
+}
+calculate("gede", 10,20,30,40,50); // gede: 150
+
+// Spread Syntax
+/*
+Menggunakan Spread Syntax itu disaat kita membuat variable baru berisikan array ataupun string, seharusnya ini bisa dimasukan dalam kategori menggunakan tipe data yg iterable
+
+*/
+
+let spreadSyn = [10,10,10,10,10];
+calculate("Banana", ...spreadSyn); // Banana: 50
