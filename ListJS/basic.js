@@ -94,3 +94,21 @@ Menggunakan Spread Syntax itu disaat kita membuat variable baru berisikan array 
 
 let spreadSyn = [10,10,10,10,10];
 calculate("Banana", ...spreadSyn); // Banana: 50
+
+// Anonymous Function
+
+let callMyName = function (name) {
+    document.writeln(`<p>Hi ${name}</p>`)
+}
+callMyName("Gede Amerta"); // Hi Gede Amerta
+
+
+function giveMyName(callback) {
+    callback("Antonio");
+}
+
+giveMyName(callMyName);
+
+giveMyName(function (name){
+    document.writeln(`<p>HI ${name}</p>`);
+});
