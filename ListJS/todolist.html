@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+<body>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+    <table id="lists">
+        <tr>
+            <th>List Todo</th>
+            <th>Action</th>
+        </tr>
+        <tr id="todo">
+            <td>Test</td>
+            <td><button>Delete</button></td>
+        </tr>
+    </table>
+
+    <br><br>
+    <form action="insertToDo()">
+        <label for="add-todo">Add Todo</label>
+        <input type="text" name="add-todo">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

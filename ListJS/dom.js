@@ -9,3 +9,8 @@ DOM Tipe Data:
 6. NamedNodeMapv -> collection yang berisikan Attr dalam bentuk Map
 
 */
+console.info("----------------------- DOM --------------------------------")
+let fruits = document.getElementById("fruits");
+console.info(fruits);
+console.info(fruits.children);
+console.info(fruits.lastChild);
