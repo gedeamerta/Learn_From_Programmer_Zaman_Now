@@ -272,3 +272,131 @@ personObjMethod2.shoutHello = (param) => {
 }
 
 personObjMethod2.shoutHello(personObjMethod2.dataName)
+
+// This: definition
+/*
+
+"This" => Merujuk pada ke siapa milik object tsb. 
+
+Tiap lokasi this, bisa berbeda-beda referensi pemiliknya
+
+*/
+
+const person3 = {
+    firstname: "Gede",
+    shout : function sayHello(fullname) {
+        console.info(`Hi, my name is ${fullname} and you can call me ${this.firstname}`);
+    }
+}
+
+/*
+
+const person3 = {
+    firstname: "Gede",
+    shout : function sayHello(fullname) {
+        console.info(this);
+    }
+}
+
+Output: {firstname: "Gede", shout: function sayHello(fullname)...}
+
+so that's why you can get the firstname using "this", cause in this function when you define in it like above, it will take all of your person3 object
+
+*/
+
+person3.shout("Gede Amerta");
+
+console.info(this); // Window()
+
+// all inside the function will return Window();
+function outer2() {
+    console.info(this);
+
+    function inner() {
+        console.info(this);
+    }
+    inner();
+}
+
+outer2();
+
+// Arrow Function di Object 
+// Note: tidak bisa mengakses Argument Object, Function Generator, kata kunci "this" dan kata kunci "super"
+
+const person4 = {
+    shout : sayHello = (fullname, firstname) => {
+        console.info(`----Arrow Function Section----`);
+        console.info(`Hi, my name is ${fullname} and you can call me ${firstname}`);
+    }
+}
+
+person4.shout("Gede Amerta", "Gede");
+
+// Getter & Setter
+// Kemampuan membuat function berbeda untuk mengambil data (Getter) dan mengubah data (Setter) pada sebuah property di Object
+
+// Getter
+const person5 = {
+    firstname : "Gede",
+    lastname : "Amerta",
+    // jika sudah menggunakan getter, maka kita tidak perlu menambahkan property baru pada object dan berisikan function seperti membuat Function di dalam Object
+    get sayHello() {
+        console.info(`-------------- GETTER AND SETTER -------------`);
+        return `Hi, my name is ${this.firstname}, and my fullname is ${this.firstname} ${this.lastname} `;
+    } 
+}
+
+person5.sayHello;
+
+// Setter 
+const person6 = {
+    firstname : "",
+    lastname : "",
+    get fullName() {
+        return `${this.firstname} ${this.lastname}`;
+    },
+    set fullName(value) {
+        const arr = value.split(" ");
+        this.firstname = arr[0];
+        this.lastname = arr[1];
+    }
+}
+
+let setter1 = person6.fullName = "Surya Amerta";
+console.table(setter1);
+let setter2 = person6.fullName = "Antonio Komang";
+console.table(setter2);
+
+
+// Destructuring: fitur yang bisa digunakan untuk membongkar value-value di array atau object ke dalam variable-variable
+
+// Destructuring Array
+console.info("------------- Destructuring ----------------")
+{
+    
+const nameArr = ["Gede", "Surya", "Amerta", "Antonio", "Komang"];
+
+let [firstname, middlename, lastname, ...others] = nameArr;
+
+console.info(firstname);
+console.info(middlename);
+console.info(lastname);
+console.info(others);
+}
+
+// Destructuring Object
+{
+    const nameObj = {
+        objFirstname: "Gede",
+        objLastname: "Amerta",
+        address: {
+            state: "Sydney",
+            country: "Australia"
+        }
+    };
+    let {objFirstname, objLastname, address: {state, country}} = nameObj;
+    console.info(objFirstname);
+    console.info(objLastname);
+    console.info(state);
+    console.info(country);
+}
