@@ -250,3 +250,25 @@ const addTwo = createAdder(5);
     }
 */
 console.info(`Create Adder: ${addTwo(10)}`);
+
+
+// Object Method: membuat function di dalam Object
+
+const personObjMethod = {
+    dataName: "Gede",
+    shoutHello: function sayHello(dataName) {
+        console.info(`Shout Obj Method: ${dataName} ANJENGGG !!!`);
+    }
+}
+personObjMethod.shoutHello(personObjMethod.dataName);
+
+// Membuat object nya terlebih dahulu, baru membuat function
+const personObjMethod2 = {
+    dataName: "Gede Ganteng"
+}
+
+personObjMethod2.shoutHello = (param) => {
+    console.info(`Shout Obj Method 2: ${param} ANJENGG!!!`);
+}
+
+personObjMethod2.shoutHello(personObjMethod2.dataName)
