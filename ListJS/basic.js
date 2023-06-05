@@ -52,7 +52,6 @@ console.info("" && "NULL"); // ""
 console.info("0" && "NULL"); // "NULL"
 
 // For In lebih cocok untuk tipe data Object
-
 const person = {
     firstName: "Gede",
     lastName: "Amerta",
@@ -95,20 +94,159 @@ Menggunakan Spread Syntax itu disaat kita membuat variable baru berisikan array 
 let spreadSyn = [10,10,10,10,10];
 calculate("Banana", ...spreadSyn); // Banana: 50
 
-// Anonymous Function
+// Anonymous Function di dalam variable
 
 let callMyName = function (name) {
-    document.writeln(`<p>Hi ${name}</p>`)
+    document.writeln(`<p>Hello ${name}</p>`)
 }
 callMyName("Gede Amerta"); // Hi Gede Amerta
 
+// Anonymous Function pada parameter
 
 function giveMyName(callback) {
-    callback("Antonio");
+    callback("Antonio - Callback");
 }
 
 giveMyName(callMyName);
 
 giveMyName(function (name){
-    document.writeln(`<p>HI ${name}</p>`);
+    document.writeln(`<p>Hi ${name}</p>`);
 });
+
+// Function dalam Function, function yg berada di dalam sebuah function tidak akan terdefined jika ingin melihat result nya diluar dari function tsb. Contoh: function inner() tidak akan dapatkan resultnya jika kita memanggil function tsb diluar dari function outer()
+function outer() {
+    console.log("Outer Function");
+    function inner() {
+        console.log("Inner Function");
+    }
+    inner(); // Inner Function
+}
+
+outer(); // Outer Function
+
+
+// Scope: Disini akan membagikan atau mengenali mana yg global scope, mana yg local scope
+
+// Global Scope
+let counter = 0;
+
+// Global Scope
+function hitMe() {
+    // Local Scope getName
+    counter++;
+}
+
+// Global Scope
+function other() {
+    // Local Scope other
+}
+
+// Recursive Function: kemampuan function memanggil dirinya sendiri
+
+// Factorial Loop
+function factorialLoop(value) {
+    result = 1;
+    for (let i = 1; i<=value; i++) {
+        result *= i;
+    }
+    return result;
+}
+
+console.info(`Factorial Loop: ${factorialLoop(5)}`);
+
+// Factorial Recursive
+function factorialRecursive(value) {
+    if(value === 1) {
+        return 1;
+    } else {
+        return value * factorialRecursive(value - 1);
+    }
+}
+console.info(`Factorial Recursive: ${factorialRecursive(5)}`);
+
+// Function Generator: function yg digunakan untuk membuat data generator, Generator: data yang bisa di iterate seperti Array. Mengembalikan data di tiap iterasi dengan menggunakan Yield. Dan kalo diperhatikanb lagi si Function Generator ini berupa object
+
+// Function Generator ini sifatnya Lazy. Jadi akan di eksekusi jika dibutuhkan. 
+
+// Note: untuk memanggil function generator itu harus menggunakan loop dan juga ada function tersendiri untuk Generator contohnya yaitu next()
+
+function* createName(){
+    yield "Gede";
+    yield "Surya";
+    yield "Amerta";
+}
+const namesGenerator = createName();
+for (const name of namesGenerator) {
+    console.info(`Name: ${name}`);
+}
+
+// Lazy
+function* createOdd(num) {
+    for (let i = 1; i <= num; i++) {
+        if(i % 2 === 1) {
+            yield i;
+        }
+    }
+}
+
+// Eager
+function createOddArray(num) {
+    result = [];
+    for (let i = 1; i <= num; i++) {
+        if(i % 2 === 1) {
+            console.info(`Yield: ${i}`);
+            result.push(i);
+        }
+    }
+    return result;
+}
+
+// Call the Function Generator by Loop
+const numbers = createOdd(10);
+// for (const number of numbers) {
+//     console.info(`Odd Number: ${number}`);
+// }
+
+// Call the Function Generator one by one
+console.info("Odd Number: " + numbers.next().value);
+console.info("Odd Number: " + numbers.next().value);
+console.info("Odd Number: " + numbers.next().value);
+
+// Arrow Function
+
+const sayHore = (shout) => {
+    console.info(`Shout: ${shout}!!!!`);
+}
+sayHore("ANJIENGG");
+
+// Jika Arrow Function yg dibuat tidak terlalu panjang kita bisa membuat function tanpa block '{}'
+const sayHore2 = (shout) => console.info(`Shout: ${shout}`)
+sayHore("KONTOLLLL");
+
+// Arrow Function langsung return value
+const sum = (first, second) => first + second;
+console.info(`Sum: ${sum(1, 2)}`);
+
+// Arrow Function parameter hanya satu
+const sayHore3 = shout => console.info(`Shout: ${shout}`);
+sayHore3("BADJINGAN!!!")
+
+// Closure: kombinasi function dan bundel referensi ke data sekitarnya. Dengan kemampuan Closure, kita dapat membuat sebuah local scope dan referensi ke data sekitar local scope, menjadi keluar scope nya
+
+const createAdder = value => {
+    let name = "Gede Amerta";
+    function add(param) {
+        console.info(name);
+        return value + param;
+    }
+    return add;
+}
+
+const addTwo = createAdder(5);
+/*
+    function add(param) {
+        console.info("Gede Amerta");
+        return 5 + param;
+    }
+*/
+console.info(`Create Adder: ${addTwo(10)}`);
