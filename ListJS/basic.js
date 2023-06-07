@@ -271,4 +271,4 @@ personObjMethod2.shoutHello = (param) => {
     console.info(`Shout Obj Method 2: ${param} ANJENGG!!!`);
 }
 
-personObjMethod2.shoutHello(personObjMethod2.dataName)
+personObjMethod2.shoutHello(personObjMethod2.dataName);
