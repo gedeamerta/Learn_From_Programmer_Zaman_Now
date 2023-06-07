@@ -400,3 +400,47 @@ console.info(others);
     console.info(state);
     console.info(country);
 }
+
+// Destructuring Function with Object
+{
+    function displayPerson({firstname, lastname, address}) {
+        console.info(`Hi my name is ${firstname} ${lastname} I live in` + address);
+    }
+    
+    const person7 = {
+        firstname: "Gede",
+        lastname: "Amerta",
+        address: "Bali",
+    }
+    
+    displayPerson(person7)
+}
+
+// Destructuring Function with Array
+{
+    function sumArr([first, second]) {
+        return first + second;
+    }
+
+    console.info(sumArr(([20, 40])));
+}
+
+// Destructuring with default Value in Array
+{
+    let defArr = ["Diva"];
+    let [firstname = "Gede", lastname = "Amerta", ...others] = defArr;
+    console.log(firstname);
+    console.log(lastname);
+    console.log(others);
+}
+
+// Destructuring with default Value in Object
+{
+    let defObj = {firstname: "Amerta", lastname: "Surya"};
+    let {firstname, lastname,address} = defObj;
+    console.log(firstname);
+    console.log(lastname);
+    console.log(address);
+}
+
+
