@@ -271,9 +271,7 @@ personObjMethod2.shoutHello = (param) => {
     console.info(`Shout Obj Method 2: ${param} ANJENGG!!!`);
 }
 
-<<<<<<< HEAD
 personObjMethod2.shoutHello(personObjMethod2.dataName);
-=======
 personObjMethod2.shoutHello(personObjMethod2.dataName)
 
 // This: definition
@@ -431,19 +429,66 @@ console.info(others);
 // Destructuring with default Value in Array
 {
     let defArr = ["Diva"];
-    let [firstname = "Gede", lastname = "Amerta", ...others] = defArr;
+    let [firstname = "Gede", lastname = "AmertaDef", ...others] = defArr;
     console.log(firstname);
     console.log(lastname);
-    console.log(others);
+    // console.log(others);
 }
 
 // Destructuring with default Value in Object
 {
-    let defObj = {firstname: "Amerta", lastname: "Surya"};
-    let {firstname, lastname,address} = defObj;
-    console.log(firstname);
-    console.log(lastname);
-    console.log(address);
+    // I DONT KNOW WHY THIS HAS AN ISSUE
+    // const nameObj = {
+    //     objFirstname,
+    //     objMiddlename,
+    //     objLastname: "Amerta",
+    // };
+    // let {objFirstname, objMiddlename = "Surya", objLastname} = nameObj;
+    // console.info(objFirstname);
+    // console.info(objMiddlename);
+    // console.info(objLastname);
+}
+
+// Destructuring Object dengan menambahkan variable
+{
+    // in this code still has an issue while give default value. I dont know, I think for now JS in Object type data we can't put the default value while Destructuring
+    const nameObj = {
+        objFirstname: "Gede First Variable",
+        objMiddlename: "Gede Middle Variable",
+        objLastname: ""
+    };
+    let {objFirstname: nameFirst, objMiddlename: nameMiddle, objLastname: nameLast = "LAST!!!"} = nameObj;
+    console.info(nameFirst);
+    console.info(nameMiddle);
+    console.info(nameLast);
 }
 
 
+// Strict Mode: Berfungsi untuk mendeteksi apakah di code yg kita buat mengandung code yg tidak lagi relevan untuk digunakan. Dan masih banyak cara untuk menggunakan fungsi strict ini salah satunya dalam membuat Class. Bisa liat di MDN Web Docs untuk dokumentasinya. 
+{
+    function useStrictMode() {
+        "use strict";
+        const person = {
+            name: "SURYA AMERTA"
+        }
+
+        // Error karena function with tidak di rekomendasikan JS
+        // with (person) {
+        //     console.info(person.name);
+        // }
+    }
+
+    useStrictMode();
+}
+
+// Debugger
+{
+    function getFullName(firstname, middlename, lastname) {
+        // debugger;
+        // dia bakal punya breakpoint yang dimana kalian bisa cek satu satu per setiap code yg akan di run. dan cek value nya. Disini sudah jelas yg salah adalah lastname nya ditaruh 2x
+        const fullname = `${firstname} ${lastname} ${lastname}`
+        return fullname;
+    }
+
+    console.info(getFullName("Gede","Surya", "Amerta"));
+}

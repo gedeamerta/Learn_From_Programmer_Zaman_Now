@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module</title>
+  </head>
+  <body>
+    <h1>Learn Module</h1>
+    <script type="module" src="./script/withModule.mjs"></script>
+  </body>
+  <script type="module">
+    // Bisa memanggil lebih dari satu function atau type data lainnya, entah variable, class, dll
+      import { sayHello, shoutMyName, myName, Person } from "./script/withModule.mjs";
+
+      sayHello();
+      shoutMyName("GEDE");
+
+      console.info(myName);
+
+      const person = new Person("Gantot");
+      person.sayHelloClass();
+    </script>
+</html>
