@@ -12,7 +12,8 @@
   </body>
   <script type="module">
     // Bisa memanggil lebih dari satu function atau type data lainnya, entah variable, class, dll
-      import { sayHello, shoutMyName, myName, Person } from "./script/withModule.mjs";
+      import { sayHello, shoutMyName, myName, Person, Car, carDealer } from "./script/withModule.mjs";
+      import { Car2 as Mobil, carDealer2 as dealerMobil} from "./script/withModule.mjs";
 
       sayHello();
       shoutMyName("GEDE");
@@ -21,5 +22,15 @@
 
       const person = new Person("Gantot");
       person.sayHelloClass();
-    </script>
+      person.sumNum(10,10);
+
+      const car = new Car("Dodge Charger");
+      car.repairCar(200000, 1500);
+      carDealer(["Car Dealer 1", "Car Dealer 2"]);
+      
+      const mobil = new Mobil("Dodge Charger");
+      mobil.repairCar2(200000, 1500);
+      dealerMobil(["Car Dealer 1", "Car Dealer 2"]);
+
+      </script>
 </html>
