@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module" >
+
+        // Dengan cara menggunakan "*" pada saat import
+        // import * as allModule from "./script/moduleObject.js"
+
+        // console.info(allModule.firstname);
+        // console.info(allModule.middlename);
+        // console.info(allModule.lastname);
+        // console.info(allModule.title);
+
+        // Aggregate Module
+        import {Person, firstname, lastname} from "./script/aggregateModule.js";
+
+        const person = new Person("Diva");
+
+        person.sayHelloClass();
+
+        console.info(firstname);
+        console.info(lastname);
+
+    </script>
+</body>
+</html>
