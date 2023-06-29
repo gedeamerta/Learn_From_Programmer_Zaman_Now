@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Module</title>
+</head>
+<body>
+    <input type="text" name="name" id="name-id">
+    <input type="button" value="Say" id="buttonClick">
+    <script type="module">
+        document.getElementById("buttonClick").onclick = function () {
+            const name = document.getElementById("name-id").value;
+            console.info(name);
+
+            import("./script/alert.js").then(function (module) {
+                module.hello("Gede");
+            })
+        }
+    </script>
+</body>
+</html>
