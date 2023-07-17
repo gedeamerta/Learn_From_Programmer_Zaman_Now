@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronus and Synchronus</title>
+</head>
+<body>
+    <h1 id="header"></h1>
+    <h1 id="header2"></h1>
+    <script>
+        function callH1() {
+            const header = document.getElementById("header");
+            header.textContent = "Hello World";
+
+            document.body.appendChild(header);
+        }
+
+        function callH2() {
+            const header2 = document.getElementById("header2");
+            header2.textContent = new Date().toString();
+
+            document.body.appendChild(header2);
+        }
+        // Callback. Ter-execute jika sudah melewati 5 detik
+        setTimeout(callH1, 5000);
+
+        // Callback. Ter-execute setiap detik, bergantung pada berapa interval yg diberi
+        setInterval(callH2, 1000);
+    </script>
+</body>
+</html>
