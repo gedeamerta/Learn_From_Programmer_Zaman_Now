@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add File using AJAX</title>
+  </head>
+  <body>
+    <form>
+      <label for="">Username</label>
+      <input type="text" name="username" id="username" />
+      <br />
+      <label for="">Name File</label>
+      <input type="file" name="file-insert" id="file-insert" />
+      <br />
+      <button type="button" id="btn-upload" value="uploaded">Upload</button>
+    </form>
+    <h1 id="response"></h1>
+    <script>
+      function doUpload() {
+        const ajax = new XMLHttpRequest();
+        ajax.open("POST", "https://eoyytsw268aek0h.m.pipedream.net");
+        ajax.readyState;
+        ajax.onload = function () {
+          let response = document.getElementById("response");
+          response.innerHTML = ajax.responseText;
+        };
+        const form = new FormData();
+        form.append("username", document.getElementById("username").value);
+        form.append(
+          "file",
+          document.getElementById("file-insert").files.item(0)
+        );
+        ajax.send(form);
+        console.log(ajax.send(form));
+      }
+      document.getElementById("btn-upload").onclick = doUpload;
+    </script>
+  </body>
+</html>
