@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+</head>
+<body>
+    <h1>Async</h1>
+</body>
+<script>
+    // Promise<String>
+    function getNamePromise() {
+        return new Promise(function (resolve, reject){
+            resolve('Gede Amerta Promise')
+        })
+    }
+
+    // Promise<String> : Async
+    async function getNameAsync() {
+        return "Gede Amerta Async"
+    }
+    
+    getNamePromise()
+    .then((name) => console.info(name))
+
+    getNameAsync()
+    .then((name) => console.info(name))
+
+    // Get Product
+    function getProduct() {
+        const request = new Request("product.json", {
+            "method": "GET"
+        });
+
+        const resp = fetch(request);
+
+        return resp.then((resp) => resp.json());
+    }
+
+    getProduct()
+    .then((product) => console.info(product));
+
+    // Await
+    async function getData() {
+        const productData = await getProduct();
+        return productData.name
+    }
+
+    getData()
+    .then((responseData) => console.info(responseData))
+</script>
+</html>

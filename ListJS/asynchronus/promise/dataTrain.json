@@ -1,0 +1,13 @@
+{
+    "response": "1",
+    "data": [
+        {
+            "id": 1,
+            "name": "Gede Surya"
+        },
+        {
+            "id": 2,
+            "name": "Gana Untaran"
+        }
+    ]
+}

@@ -48,6 +48,15 @@ for (const attribute of getAttributeNode) {
 
 // Event Handler
 
+/*
+
+In general function Event Handler:
+- EventTarget.addEventListener() -> meregistrasikan suatu event dari event target
+- EventTarget.removeEventListener() -> menghapus event listener dari event target
+- EventTarget.dispatchEvent() -> mengirimkan sebuah event ke dalam event target
+
+*/
+
 // Event Target
 // let clickID = document.getElementById("event-handler-id");
 // clickID.addEventListener("click", function(){
@@ -59,4 +68,46 @@ let clickID = document.getElementById("event-handler-id");
 clickID.onclick = function() {
     console.log("you click the button")
 }
-// Bedanya Event Target & Global Event adalah penggunaannya, EVent Target bisa beberapa menambahkan beberapa kali callback. kalau pake GLobal Event hanya bisa sekali callback
+
+// Event Target
+let buttonClicked = document.getElementById("event-handler-id");
+buttonClicked.addEventListener("click", function() {
+    buttonClicked.setAttribute("value", "It's clicked")
+})
+// Bedanya Event Target & Global Event adalah penggunaannya, Event Listener bisa ditambah beberapaka kali sedangkan Global Event hanya bisa satu kali pada Event Target.
+
+
+/*
+Event --> memiliki banyak event tergantung pada target yang dituju
+*/
+
+const textCanvas = document.getElementById("text-canvas");
+const canvas = document.getElementById("canvas");
+canvas.addEventListener("mousemove", function(event) {
+    textCanvas.textContent = `Your mouse/cursor position X:${event.x} , Y:${event.y} `
+})
+
+const canvasColor = document.getElementById("canvas-change-color");
+const allBtnInputColor = document.querySelectorAll("input");
+for (let btnColor of allBtnInputColor) {
+    btnColor.onclick = function() {
+        console.log(btnColor.getAttribute("value"));
+        canvasColor.style.backgroundColor = btnColor.getAttribute("value");
+    }   
+}
+
+/*
+Inner Text and Text Content
+
+Perbedaan nya disini adalah Text Content akan mengambil semua text yang berada pada suatu elemen, tanpa peduli didalamnya apakah text atau bukan. Lalu innerText akan lebih pintar, jadi dia mengetahui elemen mana yang merupakan benar-benar text yg diperlukan
+*/
+
+const containerContentText = document.getElementById("content-for-text-and-inner-text");
+containerContentText.innerHTML = `<h1><i>This</i> text is created from innert html tag</h1>`
+console.info(containerContentText.textContent);
+console.info(containerContentText.innerText);
+console.info(containerContentText.innerHTML);
+
+
+
+
