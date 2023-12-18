@@ -97,9 +97,11 @@ for (let btnColor of allBtnInputColor) {
 }
 
 /*
-Inner Text and Text Content
+Inner Text, Text Content, innerHTML
 
-Perbedaan nya disini adalah Text Content akan mengambil semua text yang berada pada suatu elemen, tanpa peduli didalamnya apakah text atau bukan. Lalu innerText akan lebih pintar, jadi dia mengetahui elemen mana yang merupakan benar-benar text yg diperlukan
+Perbedaan nya disini adalah Text Content akan mengambil semua text yang berada pada suatu elemen, tanpa peduli didalamnya apakah text atau bukan. Lalu innerText akan lebih pintar, jadi dia mengetahui elemen mana yang merupakan benar-benar text yg diperlukan.
+
+innerHTML berfungsi ketika kita membuat text dengan tag html, maka browser akan membaca segala jenis html tag seperti membuat html di extension fie HTML.
 */
 
 const containerContentText = document.getElementById("content-for-text-and-inner-text");
@@ -108,6 +110,38 @@ console.info(containerContentText.textContent);
 console.info(containerContentText.innerText);
 console.info(containerContentText.innerHTML);
 
+
+/*
+
+Window => representasi window yang berisikan DOM Element. Contoh: alert(), confirm(), prompt()
+
+*/
+
+const contentWindow = document.getElementById("contentWindow");
+const locationUrl = document.getElementById("locationUrl");
+
+const width = window.screen.width;
+const height = window.screen.height;
+const url = window.location;
+
+
+contentWindow.textContent = `Total Width ${width}, Total Height ${height}`;
+locationUrl.textContent = url;
+
+/*
+
+"Query Selector and Query Selector All"
+Query Selector: mengambil element yang ditarget dan yang pertama.
+Query Selector All: mengambil keseluruhan element yang mengandung id atau class yang sama.
+
+*/
+
+const getUlContent = document.getElementById("lists-content");
+const getLiContent = getUlContent.querySelectorAll('li');
+
+getLiContent.forEach(element => {
+    console.info(`Element: ${element.textContent}`);
+});
 
 
 
