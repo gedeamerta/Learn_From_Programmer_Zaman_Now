@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node</title>
+</head>
+<body>
+    <div id="get-all-node">
+        I Gede Surya Amerta
+        <!-- Comment inside of the tag -->
+        <h1>Test Text h1</h1>
+    </div>
+
+</body>
+<script>
+    /*
+    Node Type => kita bisa menggunakan nodeType untuk melihat tipe dari node tsb.
+    */
+
+    const getNodeFromHtml = document.getElementById("get-all-node").childNodes;
+    console.info(`node html: ${getNodeFromHtml}: ${getNodeFromHtml}`);
+    for (const node of getNodeFromHtml) {
+        console.info(`Check Node: ${node} = ${node.nodeType}`);
+    }
+
+</script>
+</html>

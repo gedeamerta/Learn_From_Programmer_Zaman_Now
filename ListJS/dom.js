@@ -136,6 +136,7 @@ Query Selector All: mengambil keseluruhan element yang mengandung id atau class 
 
 */
 
+// Query Selector All
 const getUlContent = document.getElementById("lists-content");
 const getLiContent = getUlContent.querySelectorAll('li');
 
@@ -143,5 +144,36 @@ getLiContent.forEach(element => {
     console.info(`Element: ${element.textContent}`);
 });
 
+// Class Selector
+const getMenuItemInUl = getUlContent.querySelectorAll('.menuItem');
+getMenuItemInUl.forEach(e => {
+    console.info(`Menu: ${e.textContent}`);
+});
 
 
+// ID Selector
+const getMenuItemInUl2 = getUlContent.querySelectorAll('#menuItem2');
+getMenuItemInUl2.forEach(e => {
+    console.info(`Menu2: ${e.textContent}`);
+});
+
+// Attribute Selector
+const getContainerAttributeSelector = document.getElementById("content-query-attribute-selector");
+const getListAttr = getContainerAttributeSelector.querySelectorAll("[class]");
+console.info(getListAttr);
+
+// Operator Selector
+const getContainerOperatorSelector = document.getElementById("content-operator-selector");
+const getOperatorSelector = getContainerOperatorSelector.querySelectorAll("li[class^=menuItem]");
+getOperatorSelector.forEach(element => {
+    console.info(`Operator: ${element.textContent}`)
+});
+
+
+/*
+HTML Element
+*/
+
+const anchorLink = document.getElementById("html-element-link");
+anchorLink.href = "https://youtube.com";
+anchorLink.textContent = "Youtube";
