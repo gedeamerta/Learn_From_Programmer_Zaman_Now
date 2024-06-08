@@ -1,0 +1,14 @@
+{
+    "listOfMobile": [
+        {
+            "id": "124123",
+            "name": "Nokia",
+            "price": 12000
+        },
+
+        {   "id": "21345",
+            "name": "Blackberry",
+            "price": 12050
+        }
+    ]
+}
