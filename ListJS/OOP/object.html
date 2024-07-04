@@ -1,0 +1,38 @@
+<!-- Membuat Object -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Object</title>
+ </head>
+ <body>
+    <script>
+
+        // sebelum ecmascript 6, class dibuatnya menggunakan function. Dan ini disebut Constructor Function
+
+        function Person() {
+            // property pada constructor function. ini bisa dikatakan sebagai cetakan.
+            this.firstName = "";
+            this.lastName = "";
+            this.sayHello = function(name) {
+                console.log(`Hello ${name}, my name is ${this.firstName}`);
+            }
+        }
+
+        // Object dari Constructor Function
+        const gede = new Person();
+        gede.firstName = "Gede"
+        gede.lastName = "Amerta"
+        gede.sayHello("Tod")
+        const amerta = new Person();
+        amerta.firstName = "Mertod"
+        amerta.lastName = "Getot"
+        amerta.sayHello("Tad")
+
+        console.log(gede);
+        console.log(amerta);
+
+    </script>    
+ </body>
+ </html>
