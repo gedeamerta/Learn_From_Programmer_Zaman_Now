@@ -1,0 +1,40 @@
+<!-- Membuat Object -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn Object</title>
+  </head>
+  <body>
+    <script>
+
+    // Prototype sebenarnya seperti object yang kita sendiri bisa menambahkan function didalamnya
+      function Person() {
+          this.firstName = "";
+          this.lastName = "";
+          this.sayHello = function(name) {
+              console.log(`Hello ${name}, my name is ${this.firstName}`);
+          }
+      }
+
+
+      Person.prototype.sayBye = function() {   
+       console.info("Say Bye Bye");
+      }
+
+      Person.prototype.run = function() {
+       console.info("runaway bichies");
+      }
+
+      const personGede = new Person("Surya", "Amerta");
+
+      const personAmerta = new Person("Surya", "Amerta");
+
+      console.log(personGede);
+      console.log(personAmerta);
+      personGede.sayBye();
+
+    </script>
+  </body>
+</html>

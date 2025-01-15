@@ -11,20 +11,35 @@
 
         // sebelum ecmascript 6, class dibuatnya menggunakan function. Dan ini disebut Constructor Function
 
+        // kita bisa membuat parameter di constructor functionn
         function Person() {
             // property pada constructor function. ini bisa dikatakan sebagai cetakan.
             this.firstName = "";
             this.lastName = "";
+            // membuat method di constructor function
             this.sayHello = function(name) {
                 console.log(`Hello ${name}, my name is ${this.firstName}`);
             }
         }
+
+        function People(firstName, lastName) {
+            this.firstName = firstName
+            this.lastName = lastName
+            this.sayHello = function(name) {
+                console.log(`Hello ${name}, my name is ${this.firstName}`);
+            }
+        }
+
+        // Constructor Function dengan parameter
+        const people = new People("Surya", "Amerta");
+        people.sayHello("Diva")
 
         // Object dari Constructor Function
         const gede = new Person();
         gede.firstName = "Gede"
         gede.lastName = "Amerta"
         gede.sayHello("Tod")
+
         const amerta = new Person();
         amerta.firstName = "Mertod"
         amerta.lastName = "Getot"

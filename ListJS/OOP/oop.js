@@ -5,3 +5,4 @@
 // Class adalah blueprint, prototype atau cetakan untuk membuat Object.
 // Class berisikan deklarasi semua property atau cetakan untuk membuat Object.
 
+    
